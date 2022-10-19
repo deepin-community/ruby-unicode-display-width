@@ -1,0 +1,12 @@
+--- a/lib/unicode/display_width/constants.rb
++++ b/lib/unicode/display_width/constants.rb
+@@ -2,7 +2,8 @@
+   module DisplayWidth
+     VERSION = '1.6.1'
+     UNICODE_VERSION = "12.1.0".freeze
+-    DATA_DIRECTORY = File.expand_path(File.dirname(__FILE__) + '/../../../data/').freeze
++    DEBIAN_DATA_DIRECTORY = '/usr/share/ruby-unicode-display-width/'
++    DATA_DIRECTORY = (File.directory?(DEBIAN_DATA_DIRECTORY) ? DEBIAN_DATA_DIRECTORY : File.expand_path(File.dirname(__FILE__) + '/../../../data/')).freeze
+     INDEX_FILENAME = (DATA_DIRECTORY + '/display_width.marshal.gz').freeze
+   end
+ end
